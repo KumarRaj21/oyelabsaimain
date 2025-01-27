@@ -18,12 +18,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { setLanguage } from "@/redux/slices/languageSlice";
 import translations from "../languages";
+import { useAuth } from "@/context/AuthContext";
 
 type Props = HTMLAttributes<HTMLDivElement>;
 
 const DashboardNavbar = ({ className, ...props }: Props) => {
   const { setTheme } = useTheme();
   const dispatch = useDispatch();
+  const { logout } = useAuth();
   const language = useSelector(
     (state: RootState) => state.language.selectedLanguage as keyof typeof translations
   );
@@ -193,7 +195,9 @@ const DashboardNavbar = ({ className, ...props }: Props) => {
 
             <DropdownMenuContent align="end">
               <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Log Out</DropdownMenuItem>
+              <DropdownMenuItem onClick={logout}>
+                Log Out
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

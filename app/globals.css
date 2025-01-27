@@ -200,13 +200,3 @@ body {
 .rose body {
   @apply bg-gray-900 text-white;
 }
-
-/* .orange body {
-  @apply bg-gray-100 text-orange-500
-} */
-
-/* .orange body {
-  @apply bg-gray-900 text-gray-100
-} */
-
-
